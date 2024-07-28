@@ -1,20 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hack people</title>
     <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('hacker.jpg');
+            background-size: cover;
+            background-position: center;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='2' rx='1' y='7' fill='%23a78bfa' /%3E%3Crect width='2' height='16' rx='1' x='7' fill='%23a78bfa' /%3E%3C/svg%3E"), crosshair;
+            animation: blurTransition 2s ease-out;
+            overflow: hidden;
+        }
+
         #container {
             border-radius: 35px;
-            border: 5px solid black;
             text-align: center;
+            border: 10px solid black;
             background-color: green;
-            bottom: 350px;   
-            padding: 20px;
-            box-shadow: 0 10px;
-           }
+            box-shadow: 1px 1px 16px rgb(0, 255, 42);
+            transition: width 0.5s ease-in-out, height 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+        }
 
+        #container:hover {
+           transform: scale('1.5'); 
+           box-shadow: 1px 1px 30px rgb(0, 255, 42);
+        }
 
         @keyframes blurTransition {
             0% {
@@ -26,20 +44,19 @@
                 opacity: 1;
             }
         }
-
-        body, html {
-            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='2' rx='1' y='7' fill='%23a78bfa' /%3E%3Crect width='2' height='16' rx='1' x='7' fill='%23a78bfa' /%3E%3C/svg%3E"), crosshair;
-            background-image: url('hacker.jpg');
-            animation: blurTransition 2s ease-out;
-
+        #myInput {
+            border-radius: 10px;
+            color: red;
         }
         #submit {
             background-color: red;
+            border-radius: 15px;
         }
 
         label {
             cursor: inherit;
             color: red;
+            font-size: 5em;
         }
 
         .heli {
@@ -55,20 +72,20 @@
     </style>
 </head>
 <body>
-    <div id="container" >
-    <h1 id="myH1">Hello, put in the user you want to hack below..</h1>
-    <label style="font-size: 70px;" class="heli">Enter Username: </label>
-    <input class="heli" id="myInput"> 
-    <button class="heli" id="submit">Hack</button>
+    <div id="container">
+        <h1 id="myH1">Hello, put in the user you want to hack below..</h1>
+        <label style="font-size: 65px;" class="heli" > Enter Username:    </label>
+        <input class="heli" id="myInput"> 
+        <button class="heli" id="submit">Hack</button>
     </div>
     <script>
-       let username;
-       
-       document.getElementById("submit").onclick = function(){
-        username = document.getElementById("myInput").value;
-        document.getElementById("myH1").textContent = `Hacking ${username}...`
-        console.log("hacking...")
-       }
+        let username;
+
+        document.getElementById("submit").onclick = function() {
+            username = document.getElementById("myInput").value;
+            document.getElementById("myH1").textContent = (`Hacking ${username}...`);
+            console.log("hacking...");
+        }
     </script>
 </body>
 </html>
