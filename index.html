@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hack people</title>
     <style>
+        #Stop {
+            background-color: red;
+            border-radius: 1.5vw;
+            font-size: 3vw;
+            padding: 0.5vw 1vw;
+        }
         body, html {
             margin: 0;
             padding: 0;
@@ -31,7 +37,6 @@
         }
 
         #container:hover {
-           transform: scale(1.1); 
            box-shadow: 0.1vw 0.1vw 3vw rgb(0, 255, 42);
         }
 
@@ -65,7 +70,7 @@
         }
 
         .heli {
-            font-size: 3vw;
+            font-size: 4vw;
             cursor: inherit;
         }
 
@@ -93,15 +98,21 @@
         <label class="heli">Enter Username:</label>
         <input class="heli" id="myInput"> 
         <button class="heli" id="submit">Hack</button>
+        <button id="Stop" >Stop</button>
     </div>
     <script>
         let username;
+        let Stop;
 
         document.getElementById("submit").onclick = function() {
             username = document.getElementById("myInput").value;
             document.getElementById("myH1").textContent = `Hacking ${username}...`;
             console.log("hacking...");
         }
+        Stop = document.getElementById("Stop")
+        Stop.onclick = function() {
+            document.getElementById("myH1").textContent = "Put in the user you want to hack below.."
+        } 
     </script>
 </body>
 </html>
