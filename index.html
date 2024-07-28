@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hack people</title>
+    <style>
+        #container {
+            border-radius: 35px;
+            border: 5px solid black;
+            text-align: center;
+            background-color: green;
+            bottom: 350px;   
+            padding: 20px;
+            box-shadow: 0 10px;
+           }
+
+
+        @keyframes blurTransition {
+            0% {
+                filter: blur(10px);
+                opacity: 0;
+            }
+            100% {
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+
+        body, html {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='2' rx='1' y='7' fill='%23a78bfa' /%3E%3Crect width='2' height='16' rx='1' x='7' fill='%23a78bfa' /%3E%3C/svg%3E"), crosshair;
+            background-image: url('hacker.jpg');
+            animation: blurTransition 2s ease-out;
+
+        }
+        #submit {
+            background-color: red;
+        }
+
+        label {
+            font-size: 30px;
+            cursor: inherit;
+        }
+
+        .heli {
+            font-size: 3em;
+            cursor: inherit;
+        }
+
+        h1 {
+            font-size: 5em;
+            color: red;
+            cursor: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" >
+    <h1 id="myH1">Hello, put in the user you want to hack below..</h1>
+    <label class="heli">Enter Username: </label>
+    <input class="heli" id="myInput"> 
+    <button class="heli" id="submit">Hack</button>
+    </div>
+    <script>
+       let username;
+       
+       document.getElementById("submit").onclick = function(){
+        username = document.getElementById("myInput").value;
+        document.getElementById("myH1").textContent = `Hacking ${username}...`
+        console.log("hacking...")
+       }
+    </script>
+</body>
+</html>
