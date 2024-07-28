@@ -21,17 +21,18 @@
         }
 
         #container {
-            border-radius: 35px;
+            border-radius: 2vw;
             text-align: center;
-            border: 10px solid black;
+            border: 1vw solid black;
             background-color: green;
-            box-shadow: 1px 1px 16px rgb(0, 255, 42);
-            transition: width 0.5s ease-in-out, height 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+            box-shadow: 0.1vw 0.1vw 1.6vw rgb(0, 255, 42);
+            transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+            padding: 2vw;
         }
 
         #container:hover {
-           transform: scale('1.5'); 
-           box-shadow: 1px 1px 30px rgb(0, 255, 42);
+           transform: scale(1.1); 
+           box-shadow: 0.1vw 0.1vw 3vw rgb(0, 255, 42);
         }
 
         @keyframes blurTransition {
@@ -45,36 +46,51 @@
             }
         }
         #myInput {
-            border-radius: 10px;
+            border-radius: 1vw;
             color: red;
+            font-size: 3vw;
+            padding: 0.5vw;
         }
         #submit {
             background-color: red;
-            border-radius: 15px;
+            border-radius: 1.5vw;
+            font-size: 3vw;
+            padding: 0.5vw 1vw;
         }
 
         label {
             cursor: inherit;
             color: red;
-            font-size: 5em;
+            font-size: 5vw;
         }
 
         .heli {
-            font-size: 3em;
+            font-size: 3vw;
             cursor: inherit;
         }
 
         h1 {
-            font-size: 5em;
+            font-size: 5vw;
             color: red;
             cursor: inherit;
+        }
+
+        @media (max-width: 600px) {
+            label, .heli, h1 {
+                font-size: 6vw;
+            }
+
+            #myInput, #submit {
+                font-size: 4vw;
+                padding: 1vw;
+            }
         }
     </style>
 </head>
 <body>
     <div id="container">
         <h1 id="myH1">Hello, put in the user you want to hack below..</h1>
-        <label style="font-size: 65px;" class="heli" > Enter Username:    </label>
+        <label class="heli">Enter Username:</label>
         <input class="heli" id="myInput"> 
         <button class="heli" id="submit">Hack</button>
     </div>
@@ -83,7 +99,7 @@
 
         document.getElementById("submit").onclick = function() {
             username = document.getElementById("myInput").value;
-            document.getElementById("myH1").textContent = (`Hacking ${username}...`);
+            document.getElementById("myH1").textContent = `Hacking ${username}...`;
             console.log("hacking...");
         }
     </script>
