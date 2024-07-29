@@ -21,7 +21,7 @@
             background-image: url('hacker.jpg');
             background-size: cover;
             background-position: center;
-            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='2' rx='1' y='7' fill='%23a78bfa' /%3E%3Crect width='2' height='16' rx='1' x='7' fill='%23a78bfa' /%3E%3C/svg%3E"), crosshair;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='2' rx='1' y='7' fill='%2300ff00' /%3E%3Crect width='2' height='16' rx='1' x='7' fill='%2300ff00' /%3E%3C/svg%3E"), crosshair;
             animation: blurTransition 2s ease-out;
             overflow: hidden;
         }
@@ -33,6 +33,7 @@
             box-shadow: 0.1vw 0.1vw 1.6vw rgb(0, 255, 42);
             transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
             padding: 2vw;
+            display: block;
         }
         #container:hover {
            box-shadow: 0.1vw 0.1vw 3vw rgb(0, 255, 42);
@@ -93,6 +94,7 @@
         <button id="Stop">Stop</button>
     </div>
     <script>
+        console.log("Hi!")
         function delay(seconds) {
             return new Promise(resolve => setTimeout(resolve, seconds * 1000));
         }
@@ -124,3 +126,4 @@
     </script>
 </body>
 </html>
+<!--if you are reading this you are cool-->
