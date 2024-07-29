@@ -25,7 +25,6 @@
             animation: blurTransition 2s ease-out;
             overflow: hidden;
         }
-
         #container {
             border-radius: 2vw;
             text-align: center;
@@ -35,11 +34,9 @@
             transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
             padding: 2vw;
         }
-
         #container:hover {
            box-shadow: 0.1vw 0.1vw 3vw rgb(0, 255, 42);
         }
-
         @keyframes blurTransition {
             0% {
                 filter: blur(10px);
@@ -62,29 +59,24 @@
             font-size: 3vw;
             padding: 0.5vw 1vw;
         }
-
         label {
             cursor: inherit;
             color: red;
             font-size: 5vw;
         }
-
         .heli {
             font-size: 4vw;
             cursor: inherit;
         }
-
         h1 {
             font-size: 5vw;
             color: red;
             cursor: inherit;
         }
-
         @media (max-width: 600px) {
             label, .heli, h1 {
                 font-size: 6vw;
             }
-
             #myInput, #submit {
                 font-size: 4vw;
                 padding: 1vw;
@@ -98,21 +90,37 @@
         <label class="heli">Enter Username:</label>
         <input class="heli" id="myInput"> 
         <button class="heli" id="submit">Hack</button>
-        <button id="Stop" >Stop</button>
+        <button id="Stop">Stop</button>
     </div>
     <script>
-        let username;
-        let Stop;
-
-        document.getElementById("submit").onclick = function() {
-            username = document.getElementById("myInput").value;
-            document.getElementById("myH1").textContent = `Hacking ${username}...`;
-            console.log("hacking...");
+        function delay(seconds) {
+            return new Promise(resolve => setTimeout(resolve, seconds * 1000));
         }
-        Stop = document.getElementById("Stop")
-        Stop.onclick = function() {
-            document.getElementById("myH1").textContent = "Put in the user you want to hack below.."
-        } 
+
+        async function validateUsername() {
+            let inputValue = document.getElementById("myInput").value;
+            let inputLength = inputValue.length;
+
+            if (inputLength === 0) {
+                document.getElementById("myH1").textContent = "Username cannot be empty";
+                await delay(2);
+                document.getElementById("myH1").textContent = "Hello, put in the user you want to hack below..";
+            } else if (inputLength > 20) {
+                document.getElementById("myH1").textContent = "Username cannot be over 20 characters";
+                await delay(2);
+                document.getElementById("myH1").textContent = "Hello, put in the user you want to hack below..";
+            } else {
+                document.getElementById("myH1").textContent = `Hacking ${inputValue}...`;
+                console.log("hacking...");
+            }
+        }
+
+        document.getElementById("submit").onclick = validateUsername;
+
+        document.getElementById("Stop").onclick = function() {
+            document.getElementById("myH1").textContent = "Hello, put in the user you want to hack below..";
+            console.log("stopped hacking.");
+        }
     </script>
 </body>
 </html>
