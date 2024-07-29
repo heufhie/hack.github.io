@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hack people</title>
+    <title>Hack people</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         #Stop {
             background-color: red;
@@ -84,7 +85,7 @@
             }
         }
     </style>
-</head>
+    </head>
 <body>
     <div id="container">
         <h1 id="myH1">Hello, put in the user you want to hack below..</h1>
@@ -98,29 +99,32 @@
         function delay(seconds) {
             return new Promise(resolve => setTimeout(resolve, seconds * 1000));
         }
+        let H1 = document.getElementById("myH1")
+        let submit = document.getElementById("submit")
+        let Stop = document.getElementById("Stop")
 
         async function validateUsername() {
             let inputValue = document.getElementById("myInput").value;
             let inputLength = inputValue.length;
 
             if (inputLength === 0) {
-                document.getElementById("myH1").textContent = "Username cannot be empty";
+                H1.textContent = "Username cannot be empty";
                 await delay(2);
-                document.getElementById("myH1").textContent = "Hello, put in the user you want to hack below..";
+                H1.textContent = "Put in the user you want to hack below..";
             } else if (inputLength > 20) {
-                document.getElementById("myH1").textContent = "Username cannot be over 20 characters";
+                H1.textContent = "Username cannot be over 20 characters";
                 await delay(2);
-                document.getElementById("myH1").textContent = "Hello, put in the user you want to hack below..";
+                H1.textContent = "Put in the user you want to hack below..";
             } else {
-                document.getElementById("myH1").textContent = `Hacking ${inputValue}...`;
+                H1.textContent = `Hacking ${inputValue}...`;
                 console.log("hacking...");
             }
         }
 
-        document.getElementById("submit").onclick = validateUsername;
+        submit.onclick = validateUsername;
 
-        document.getElementById("Stop").onclick = function() {
-            document.getElementById("myH1").textContent = "Hello, put in the user you want to hack below..";
+        Stop.onclick = function() {
+            H1.textContent = "Put in the user you want to hack below..";
             console.log("stopped hacking.");
         }
     </script>
